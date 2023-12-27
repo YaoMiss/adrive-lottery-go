@@ -1,0 +1,12 @@
+version: '3.0'
+
+services:
+  go:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: on-failure
+    container_name: adrive-lottery
+    env_file:
+      - .env
+    working_dir: /app
