@@ -20,7 +20,7 @@ import (
 const (
 	TokenUrl       = "https://auth.aliyundrive.com/v2/account/token"
 	SignUrl        = "https://member.aliyundrive.com/v1/activity/sign_in_list"
-	RetryHours     = 3
+	RetryHours     = 6
 	Date2DayFormat = "2006/01/02"
 )
 
@@ -68,7 +68,7 @@ NOTE : Job will be retried at %s`, time.Now().Format(Date2DayFormat), filename, 
 					filePointer, _ := os.OpenFile(fmt.Sprintf("%s/%s", dir, filename), os.O_RDONLY|os.O_CREATE, 0766)
 					defer filePointer.Close()
 
-					msg := fmt.Sprintf("⭐️⭐️⭐️ %s️ ALIPAN user_name = %s sign in successfully", time.Now().Format(Date2DayFormat), userName)
+					msg := fmt.Sprintf("⭐️⭐️⭐️ ALIPAN %s user_name = %s sign in successfully", time.Now().Format(Date2DayFormat), userName)
 					go tgMsg(tgUserId, msg, bot)
 					log.Println(msg)
 
